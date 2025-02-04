@@ -7,12 +7,12 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-realtime-spotify-clone-master
 node_modules
 dist
 dist-ssr
 *.local
 .env
+temp-commit.txt
 
 # Editor directories and files
 .vscode/*
