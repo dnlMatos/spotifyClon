@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import path from "path";
+import cors from "cors";
 
 import userRoutes from "./routes/user.route.js";
 import adminRoutes from "./routes/admin.route.js";
@@ -14,9 +15,15 @@ import { connectDB } from "./lib/db.js";
 
 dotenv.config();
 
-const app = express();
+const app = express({
+  origin: "http://localhost:3000",
+  credentials: true,
+});
+
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
+
+app.use(cors());
 
 app.use(express.json()); //to parse to req.body
 app.use(clerkMiddleware()); //this will add auth to req obj => req.auth
