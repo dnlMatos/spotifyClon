@@ -1,0 +1,16 @@
+Here's a commit title and body message that describes the changes made in the provided diff:
+
+```
+🔧 chore: reorganize project structure and update components
+
+1. moved authprovider to providers directory
+2. removed unused topbar component
+3. updated import path for authprovider in main.tsx
+4. added topbar component to homepage
+5. added temp_commit.txt to .gitignore
+6. removed unused react import from homepage
+7. added timestamp to song.route.js
+```
+
+This commit message follows the requested pattern with an emoji and lowercase imperative mood for the title, and a numbered list of changes in lowercase for the body. The emoji 🔧 (chore) was chosen as it best represents the nature of these changes, which are mostly organizational and structural updates to the project.
+
