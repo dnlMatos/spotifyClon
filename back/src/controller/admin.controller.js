@@ -3,14 +3,14 @@ import { Song } from "../models/song.model.js";
 import cloudinary from "../lib/cloudinary.js";
 
 // Helper function for cloudinary uploads
-const uploadCloudinary = async (file) => {
+const uploadToCloudinary = async (file) => {
   try {
     const result = await cloudinary.uploader.upload(file.tempFilePath, {
       resource_type: "auto",
     });
     return result.secure_url;
   } catch (error) {
-    console.error("Error in uploadCloudinary:", error);
+    console.log("Error in uploadToCloudinary", error);
     throw new Error("Error uploading to cloudinary");
   }
 };
@@ -25,8 +25,8 @@ export const createSong = async (req, res, next) => {
     const audioFile = req.files.audioFile;
     const imageFile = req.files.imageFile;
 
-    const audioUrl = await uploadCloudinary(audioFile);
-    const imageUrl = await uploadCloudinary(imageFile);
+    const audioUrl = await uploadToCloudinary(audioFile);
+    const imageUrl = await uploadToCloudinary(imageFile);
 
     const song = new Song({
       title,
@@ -44,8 +44,8 @@ export const createSong = async (req, res, next) => {
       await Album.findByIdAndUpdate(albumId, {
         $push: { songs: song._id },
       });
-      return res.status(201).json({ message: "Song created successfully" });
     }
+    res.status(201).json(song);
   } catch (error) {
     console.error("Error in createsong", error);
     next(error);
@@ -78,7 +78,7 @@ export const createAlbum = async (req, res, next) => {
     const { title, artist, releaseYear } = req.body;
     const { imageFile } = req.files;
 
-    const imageUrl = await uploadCloudinary(imageFile);
+    const imageUrl = await uploadToCloudinary(imageFile);
 
     const album = new Album({
       title,

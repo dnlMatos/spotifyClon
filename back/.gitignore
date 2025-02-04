@@ -8,13 +8,15 @@ pnpm-debug.log*
 lerna-debug.log*
 temp_commit.txt 
 
+backend
+frontend
 front
-realtime-spotify-clone-master
 node_modules
 dist
 dist-ssr
 *.local
 .env
+temp_commit.txt
 
 # Editor directories and files
 .vscode/*
