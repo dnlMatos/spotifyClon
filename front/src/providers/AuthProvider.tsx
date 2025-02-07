@@ -1,7 +1,9 @@
-import { useAuth } from "@clerk/clerk-react";
-import { useEffect, useState } from "react";
-import { Loader } from "lucide-react";
 import { axiosInstance } from "@/lib/axios";
+import { useAuthStore } from "@/stores/useAuthStore";
+import { useChatStore } from "@/stores/useChatStore";
+import { useAuth } from "@clerk/clerk-react";
+import { Loader } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const updateApiToken = (token: string | null) => {
   if (token)
@@ -9,15 +11,22 @@ const updateApiToken = (token: string | null) => {
   else delete axiosInstance.defaults.headers.common["Authorization"];
 };
 
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const { getToken } = useAuth();
+const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const { getToken, userId } = useAuth();
   const [loading, setLoading] = useState(true);
+  const { checkAdminStatus } = useAuthStore();
+  const { initSocket, disconnectSocket } = useChatStore();
 
   useEffect(() => {
     const initAuth = async () => {
       try {
         const token = await getToken();
         updateApiToken(token);
+        if (token) {
+          await checkAdminStatus();
+          // init socket
+          if (userId) initSocket(userId);
+        }
       } catch (error: any) {
         updateApiToken(null);
         console.log("Error in auth provider", error);
@@ -27,7 +36,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     initAuth();
-  }, [getToken]);
+
+    // clean up
+    return () => disconnectSocket();
+  }, [getToken, userId, checkAdminStatus, initSocket, disconnectSocket]);
 
   if (loading)
     return (
@@ -38,3 +50,4 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   return <>{children}</>;
 };
+export default AuthProvider;
