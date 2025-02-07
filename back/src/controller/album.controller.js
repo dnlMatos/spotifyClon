@@ -2,8 +2,6 @@ import { Album } from "../models/album.model.js";
 
 export const getAllAlbums = async (req, res, next) => {
   try {
-    console.log("asdf");
-
     const albums = await Album.find();
     res.status(200).json(albums);
   } catch (error) {
@@ -26,3 +24,4 @@ export const getAlbumById = async (req, res, next) => {
     next(error);
   }
 };
+//5:40:27
