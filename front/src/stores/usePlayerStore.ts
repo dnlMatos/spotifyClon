@@ -123,6 +123,8 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
       }
     }
   },
+
+  // play previous song
   playPrevious: () => {
     const { currentIndex, queue } = get();
     const prevIndex = currentIndex - 1;

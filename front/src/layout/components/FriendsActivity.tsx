@@ -38,8 +38,8 @@ const FriendsActivity = () => {
                 <div className="flex items-start gap-3">
                   <div className="relative">
                     <Avatar className="size-10 border border-zinc-800">
-                      {/* <AvatarImage src={user.imageUrl} alt={user.fullName} />
-                      <AvatarFallback>{user.fullName[0]}</AvatarFallback> */}
+                      <AvatarImage src={user.imageUrl} alt={user.fullName} />
+                      <AvatarFallback>{user.fullName[0]}</AvatarFallback>
                     </Avatar>
                     <div
                       className={`absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-zinc-900 
