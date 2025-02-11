@@ -1,10 +1,13 @@
 import { Server } from "socket.io";
 import { Message } from "../models/message.model.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const initializeSocket = (server) => {
   const io = new Server(server, {
     cors: {
-      origin: "http://localhost:3000",
+       origin: process.env.LOCALHOST,
       credentials: true,
     },
   });
