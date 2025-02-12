@@ -1,6 +1,7 @@
 <h1 align="center">Realtime Spotify Application ✨</h1>
 
-![Image alt](https://github.com/dnlMatos/spotifyClon/blob/f7995ec85fb50175156cedd5d862a4ae7214e1ff/screenshot-for-readme.png)
+![spotifyClone](https://github.com/user-attachments/assets/875aea78-c263-4ea6-8483-48f7f6ad1129)
+
 
 Sobre o projeto
 -   🎸 Ouvir, avançar e voltar música
