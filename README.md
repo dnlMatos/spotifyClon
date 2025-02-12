@@ -19,4 +19,4 @@ https://github.com/user-attachments/assets/0dd7d464-3c1c-4c1e-9497-b233e8037dc4
 
 
 
-Inspirado em As a Programmer
+Inspirado em [As a Programmer](https://www.youtube.com/@asaprogrammer_)
