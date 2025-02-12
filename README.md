@@ -13,7 +13,7 @@ Sobre o projeto
 
 
 Demonstração:
-https://github.com/dnlMatos/spotifyClon/issues/23#issue-2848275215
+https://github.com/user-attachments/assets/f14252be-800a-4089-8b0f-e0dbe769f5e5
 
 
 Inspirado em As a Programmer
