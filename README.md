@@ -12,8 +12,11 @@ Sobre o projeto
 
 
 
+
 Demonstração:
-https://github.com/user-attachments/assets/f14252be-800a-4089-8b0f-e0dbe769f5e5
+
+https://github.com/user-attachments/assets/0dd7d464-3c1c-4c1e-9497-b233e8037dc4
+
 
 
 Inspirado em As a Programmer
